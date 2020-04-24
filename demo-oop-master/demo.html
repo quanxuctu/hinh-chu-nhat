@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Mobile.js"></script>
+</head>
+<style>
+    #myCanvas {
+        width: 800px;
+        height: 600px;
+        background-color: bisque;
+    }
+    img{
+        display: none;
+    }
+</style>
+<body>
+
+<div class="moblie">
+    <h1>Name</h1>
+    <textarea id="inbox">
+        inbox
+    </textarea>
+    <textarea id="outbox">
+        outbox
+    </textarea>
+    <input id="msg" placeholder="mess here" oninput="samsung.writeMess(this.value)">
+    <button onclick="sendMess(samsung,iphone)">send</button>
+</div>
+
+<div class="moblie">
+    <h1>Name</h1>
+    <textarea id="inboxIphone">
+        inbox
+    </textarea>
+    <textarea id="z">
+        outbox
+    </textarea>
+    <input id="x" placeholder="mess here" oninput="samsung.writeMess(this.value)">
+    <button onclick="sendMess(samsung,iphone)">send</button>
+</div>
+
+<script>
+    let samsung = new Mobile("S10");
+    let iphone = new Mobile("12S");
+
+    function sendMess(mobile1,mobile2) {
+        mobile1.sendMess(mobile2);
+        // document.getElementById("inbox").innerHTML = iphone.inbox;
+        document.getElementById("outbox").innerHTML = samsung.outbox;
+        document.getElementById("inboxIphone").innerHTML = iphone.inbox;
+        document.getElementById("msg").value = "";
+    }
+</script>
+</body>
+</html>
